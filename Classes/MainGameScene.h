@@ -45,6 +45,7 @@ public:
 private:
 	ScriptingInd ScrInd;
 	int audioId;
+	int effectId;
 	cocos2d::Size			winSize;
 	cocos2d::Vec2			characterPosition;
 	cocos2d::Sprite* character;

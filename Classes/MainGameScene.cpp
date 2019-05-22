@@ -96,6 +96,7 @@ MainGameScene::~MainGameScene()
 	AudioEngine::end();
 }
 
+
 void MainGameScene::Scripting(float delta)
 {
 	TTFConfig mainTTF("fonts/NanumBarunGothic.ttf", 30);
@@ -155,6 +156,16 @@ void MainGameScene::Scripting(float delta)
 				MainGameScene::GoToDialogueScene(this, script[m_Indicator].substr(0, ind_where), script[m_Indicator].substr(ind_where + 1, ind_name - (ind_where + 1)), script[m_Indicator].substr(ind_name + 2, ind_text - (ind_name + 2)), script[m_Indicator].substr(ind_text + 2, ind_bgurl - (ind_text + 2)), script[m_Indicator].substr(ind_bgurl + 2, ind_charurl - (ind_bgurl + 2)), "non$", true);
 
 			ScrInd = DIAL_;
+		}
+		else if (script[m_Indicator].find("EFFECTS_") == 0)
+		{
+			script[m_Indicator].erase(0, 9);
+
+			int ind_str;
+			for (ind_str = 0; (script[m_Indicator])[ind_str] != '$'; ind_str++) {}
+
+			std::string a = script[m_Indicator].substr(0, ind_str);
+			effectId = AudioEngine::play2d(script[m_Indicator].substr(0, ind_str), true, 1.0);
 		}
 		else if (script[m_Indicator].find("MUSIC_PLAY_") == 0)
 		{
