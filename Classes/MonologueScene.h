@@ -1,6 +1,5 @@
 #include "cocos2d.h"
 #include "LabelTypingEffect.h"
-USING_NS_CC;
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
 #pragma execution_character_set("utf-8")

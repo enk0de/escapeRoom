@@ -1,6 +1,5 @@
 #include "cocos2d.h"
-USING_NS_CC;
-
+#include "Commons.h"
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
 #pragma execution_character_set("utf-8")
 #endif
