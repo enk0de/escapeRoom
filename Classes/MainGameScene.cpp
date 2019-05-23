@@ -165,7 +165,7 @@ void MainGameScene::Scripting(float delta)
 			for (ind_str = 0; (script[m_Indicator])[ind_str] != '$'; ind_str++) {}
 
 			std::string a = script[m_Indicator].substr(0, ind_str);
-			effectId = AudioEngine::play2d(script[m_Indicator].substr(0, ind_str), true, 1.0);
+			effectId = AudioEngine::play2d(script[m_Indicator].substr(0, ind_str), false, 1.0);
 		}
 		else if (script[m_Indicator].find("MUSIC_PLAY_") == 0)
 		{

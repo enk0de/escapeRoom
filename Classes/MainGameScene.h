@@ -6,13 +6,13 @@
 #endif
 
 #include "cocos2d.h"
-#include "Commons.h"
 #include "MonologueScene.h"
 #include "DialogueScene.h"
 #include "AudioEngine.h"
 #include <iostream>
 #include <string>
 #include <fstream>
+USING_NS_CC;
 
 enum ScriptingInd
 {
