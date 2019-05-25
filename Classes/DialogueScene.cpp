@@ -3,10 +3,10 @@
 
 using namespace experimental;
 // INSTEAD OF CREATE_FUNC(~);
-DialogueScene* DialogueScene::create(std::string Where, std::string Name, std::string Text, std::string BgURL, std::string CharURL, std::string NextText, bool IsAnimation)
+DialogueScene* DialogueScene::create(std::string Where, std::string Name, std::string Text, std::string BgURL, std::string CharURL, bool IsAnimation)
 {
 	DialogueScene* pRet = new(std::nothrow) DialogueScene();
-	if (pRet && pRet->init(Where, Name, Text, BgURL, CharURL, NextText, IsAnimation))
+	if (pRet && pRet->init(Where, Name, Text, BgURL, CharURL, IsAnimation))
 	{
 		pRet->autorelease();
 		return pRet;
@@ -19,17 +19,22 @@ DialogueScene* DialogueScene::create(std::string Where, std::string Name, std::s
 	}
 }
 
-Scene* DialogueScene::createScene(std::string Where, std::string Name, std::string Text, std::string BgURL, std::string CharURL, std::string NextText, bool IsAnimation)
+Scene* DialogueScene::createScene(std::string Where, std::string Name, std::string Text, std::string BgURL, std::string CharURL, bool IsAnimation)
 {
-	return DialogueScene::create(Where, Name, Text, BgURL, CharURL, NextText, IsAnimation);
+	return DialogueScene::create(Where, Name, Text, BgURL, CharURL, IsAnimation);
 }
 
-bool DialogueScene::init(std::string Where, std::string Name, std::string Text, std::string BgURL, std::string CharURL, std::string NextText, bool IsAnimation)
+bool DialogueScene::init(std::string Where, std::string Name, std::string Text, std::string BgURL, std::string CharURL, bool IsAnimation)
 {
 	if (!Scene::init())
 	{
 		return false;
 	}
+
+	this->setName("Dialogue");
+	auto a =
+	this->getName();
+	Game = GameManager::GetInstance();
 
 	TTFConfig Name_Font("fonts/NanumBarunGothic.ttf", 60);
 	TTFConfig Text_Font("fonts/NanumBarunGothic.ttf", 50);
@@ -148,14 +153,12 @@ void DialogueScene::changeCharURL(std::string p)
 	m_CharURL = p;
 }
 
-void DialogueScene::EndScene(float f = 0)
-{
-	Director::getInstance()->popScene();
-}
 
 bool DialogueScene::onTouchBegan(Touch* touch, Event* unused_event)
 {
-	DialogueScene::EndScene(0);
+	Director::getInstance()->popScene();
+	Game->ScriptParser(0);
+	
 	return true;
 }
 

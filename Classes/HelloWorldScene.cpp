@@ -1,5 +1,6 @@
 ﻿#include "HelloWorldScene.h"
 #include "AudioEngine.h"
+#include "MainGameScene.h"
 
 #pragma comment(linker, "/entry:wWinMainCRTStartup /subsystem:console")
 

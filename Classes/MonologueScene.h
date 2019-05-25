@@ -1,5 +1,9 @@
+#pragma once
 #include "cocos2d.h"
 #include "LabelTypingEffect.h"
+#include "GameManager.h"
+
+USING_NS_CC;
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
 #pragma execution_character_set("utf-8")
@@ -28,6 +32,7 @@ public:
 	//CREATE_FUNC(MonologueScene);
 
 private:
+	GameManager* Game;
 	bool m_IsType;
 	bool m_IsTouched;
 	bool m_IsAuto;

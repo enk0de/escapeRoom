@@ -1,4 +1,5 @@
 #include "MonologueScene.h"
+#include "GameManager.h"
 
 // INSTEAD OF CREATE_FUNC(~);
 MonologueScene* MonologueScene::create(float f, std::string s, bool IsAuto, bool IsType)
@@ -28,6 +29,8 @@ bool MonologueScene::init(float f, std::string s, bool IsAuto, bool IsType)
 	{
 		return false;
 	}
+
+	Game = GameManager::GetInstance();
 
 	// Initializing
 	m_IsType = IsType;
@@ -84,6 +87,12 @@ bool MonologueScene::init(float f, std::string s, bool IsAuto, bool IsType)
 	return true;
 }
 
+void MonologueScene::EndScene(float f)
+{
+	Director::getInstance()->popScene();
+	Game->ScriptParser(0);
+}
+
 bool MonologueScene::onTouchBegan(Touch* touch, Event* unused_event)
 {
 	if (!m_IsTouched && this->getChildByName("MonologueText")->getOpacity() == 255)
@@ -119,11 +128,6 @@ void MonologueScene::FadeOut(float f)
 {
 	auto fadeout = FadeOut::create(1.0f);
 	this->getChildByName("MonologueText")->runAction(fadeout);
-}
-
-void MonologueScene::EndScene(float f = 0)
-{
-	Director::getInstance()->popScene();
 }
 
 void MonologueScene::SetTime(float f)

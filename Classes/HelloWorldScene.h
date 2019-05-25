@@ -6,8 +6,6 @@
 #endif
 
 #include "cocos2d.h"
-#include "MainGameScene.h"
-
 class HelloWorld : public cocos2d::Scene
 {
 public:
