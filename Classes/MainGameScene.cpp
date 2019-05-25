@@ -23,6 +23,8 @@ bool MainGameScene::init()
 	{
 		return false;
 	}
+
+	IsStay = false;
 	   
 	Game = GameManager::GetInstance();
 	Game->initializing();
@@ -40,7 +42,7 @@ bool MainGameScene::init()
 	// ¹è°æ  
 	auto wlayer = LayerColor::create(Color4B(0, 0, 0, 255));
 
-	this->scheduleOnce(schedule_selector(MainGameScene::GoScript), 0.1f);
+	//this->scheduleOnce(schedule_selector(MainGameScene::GoScript), 0.1f);
 	this->scheduleUpdate();
 	this->addChild(wlayer);
 
@@ -51,27 +53,33 @@ void MainGameScene::update(float f)
 {
 	std::string now = Game->GetNow();
 
-	if (now != "MONO_" && now != "AUTO_MONO_" && now != "DIAL_")
+	if (now == "START!" || (now != "MONO_" && now != "AUTO_MONO_" && now != "DIAL_" && now != "DELAY_STAY_" && now != "DELAY_"))
+	{
 		GoScript(0);
+	}
+	else if (now == "DELAY_STAY_") { IsStay = true; }
+	else if (now == "DELAY_" && IsStay == false)
+	{
+		IsStay = true;
+		this->scheduleOnce(schedule_selector(MainGameScene::GoScript), Game->GetStayingTime());
+	}
 }
 
 void MainGameScene::GoScript(float f)
 {
+	IsStay = false;
 	Game->ScriptParser(0);
 }
 
 bool MainGameScene::onTouchBegan(Touch* touch, Event* unused_event)
 {
-	/*
-	if (m_IsDelayStay)
+	if (IsStay && Game->GetNow() == "DELAY_STAY_")
 	{
-		m_IsDelayStay = false;
+		GoScript(0);
 		return true;
 	}
 	else
-		return false;*/
-
-	return true;
+		return false;
 }
 
 

@@ -5751,3 +5751,16 @@ Resources/TileMaps/city.png
 Resources/TileMaps/forest.png
 Resources/TileMaps/forest.tsx
 Resources/TileMaps/Test.tmx
+cocos2d/cocos/2d/Debug.win32/libcocos2d.Build.CppClean.log
+cocos2d/cocos/2d/Debug.win32/libcocos2d.vcxproj.FileListAbsolute.txt
+cocos2d/cocos/editor-support/spine/proj.win32/Debug.win32/libSpine.Build.CppClean.log
+cocos2d/cocos/editor-support/spine/proj.win32/Debug.win32/libSpine.tlog/CL.10076.write.1.tlog
+cocos2d/cocos/editor-support/spine/proj.win32/Debug.win32/libSpine.vcxproj.FileListAbsolute.txt
+cocos2d/external/recast/proj.win32/Debug.win32/librecast.Build.CppClean.log
+cocos2d/external/recast/proj.win32/Debug.win32/librecast.vcxproj.FileListAbsolute.txt
+proj.win32/.vs/escapeRoom/v16/ipch/AutoPCH/11d3b08873be9ad5/MAIN.ipch
+proj.win32/.vs/escapeRoom/v16/ipch/AutoPCH/47946d736336e803/GAMEMANAGER.ipch
+proj.win32/.vs/escapeRoom/v16/ipch/AutoPCH/82b71d70b6eb3dce/INVESTIGATESCENE.ipch
+proj.win32/.vs/escapeRoom/v16/ipch/AutoPCH/cc2f86ae0e86fc0d/INVESTIGATESCENE.ipch
+proj.win32/Debug.win32/escapeRoom.Build.CppClean.log
+proj.win32/Debug.win32/escapeRoom.vcxproj.FileListAbsolute.txt

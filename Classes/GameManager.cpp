@@ -8,6 +8,7 @@ TTFConfig mainTTF("fonts/NanumBarunGothic.ttf", 30);
 
 void GameManager::initializing()
 {
+	now = "START!";
 	m_Indicator = 1;
 	filename = "001.txt";
 	std::ifstream scr(filename);
@@ -148,7 +149,6 @@ void GameManager::ScriptParser(float delta)
 		}
 		else if (script[m_Indicator].find("DELAY_") == 0)
 		{
-			now = "DELAY_";
 			script[m_Indicator].erase(0, 7);
 
 			int ind_time;
@@ -159,12 +159,12 @@ void GameManager::ScriptParser(float delta)
 
 			if (script[m_Indicator].substr(0, ind_time) != "STAY")
 			{
-				m_IsDelayStay = true;
-			//	Director::getInstance()->getRunningScene()->scheduleOnce(schedule_selector(GameManager::DisableDelay), atof(script[m_Indicator].substr(0, ind_time).c_str()));
+				now = "DELAY_";
+				m_stayingTime = atof(script[m_Indicator].substr(0, ind_time).c_str());
 			}
 			else if (script[m_Indicator].substr(0, ind_time) == "STAY")
 			{
-				m_IsDelayStay = true;
+				now = "DELAY_STAY_";
 			}
 
 		}
@@ -172,9 +172,9 @@ void GameManager::ScriptParser(float delta)
 	}
 }
 
-void GameManager::DisableDelay(float f)
+float GameManager::GetStayingTime()
 {
-	m_IsDelayStay = false;
+	return m_stayingTime;
 }
 
 void GameManager::GoToMonologueScene(float FadingTime, std::string String, bool IsAuto, bool IsType)

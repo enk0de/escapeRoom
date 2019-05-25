@@ -39,6 +39,7 @@ public:
 	~MainGameScene();
 
 private:
+	bool IsStay;
 	GameManager* Game;
 };
 

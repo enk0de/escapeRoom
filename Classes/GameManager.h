@@ -22,14 +22,14 @@ private:
 	std::string filename;
 	std::string script[200];
 
-	bool m_IsDelayStay;
+	
+	float m_stayingTime;
 	int audioId;
 	int effectId;
 
 
 public:
 	int m_Indicator;
-
 	void initializing();
 
 	static GameManager* GetInstance()
@@ -46,6 +46,8 @@ public:
 
 	void ReadScript(std::ifstream* scr);
 	void ScriptParser(float delta);
+
+	float GetStayingTime();
 
 	std::string GetNow();
 	void GoToMonologueScene(float FadingTime, std::string String, bool IsAuto, bool IsType);
