@@ -24,10 +24,8 @@ bool MainGameScene::init()
 		return false;
 	}
 
-	IsStay = false;
-	   
 	Game = GameManager::GetInstance();
-	Game->initializing();
+	IsStay = false;
 
 	auto touchListener = EventListenerTouchOneByOne::create();
 	touchListener->setSwallowTouches(true);
@@ -40,11 +38,11 @@ bool MainGameScene::init()
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
 
 	// ¹è°æ  
-	auto wlayer = LayerColor::create(Color4B(0, 0, 0, 255));
+//	auto wlayer = LayerColor::create(Color4B(0, 0, 0, 255));
 
 	//this->scheduleOnce(schedule_selector(MainGameScene::GoScript), 0.1f);
 	this->scheduleUpdate();
-	this->addChild(wlayer);
+	//this->addChild(wlayer);
 
 	return true;
 }

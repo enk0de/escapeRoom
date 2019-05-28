@@ -5764,3 +5764,6 @@ proj.win32/.vs/escapeRoom/v16/ipch/AutoPCH/82b71d70b6eb3dce/INVESTIGATESCENE.ipc
 proj.win32/.vs/escapeRoom/v16/ipch/AutoPCH/cc2f86ae0e86fc0d/INVESTIGATESCENE.ipch
 proj.win32/Debug.win32/escapeRoom.Build.CppClean.log
 proj.win32/Debug.win32/escapeRoom.vcxproj.FileListAbsolute.txt
+escapeRoom.egg
+proj.win32/.vs/escapeRoom/v16/ipch/AutoPCH/354474346ccd2890/INTRO.ipch
+proj.win32/.vs/escapeRoom/v16/ipch/AutoPCH/5c8415df2d4aa690/INTRO.ipch

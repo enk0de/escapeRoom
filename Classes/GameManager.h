@@ -29,6 +29,10 @@ private:
 
 
 public:
+	bool m_IsSelection;
+	void Selection(std::string Text1, std::string GoTo1, std::string Text2, std::string GoTo2);
+	void Selection(std::string Text1, std::string GoTo1, std::string Text2, std::string GoTo2, std::string Text3, std::string GoTo3);
+
 	int m_Indicator;
 	void initializing();
 

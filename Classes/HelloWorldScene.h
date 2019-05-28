@@ -6,21 +6,25 @@
 #endif
 
 #include "cocos2d.h"
-class HelloWorld : public cocos2d::Scene
+#include "GameManager.h"
+class HelloWorldScene : public cocos2d::Scene
 {
 public:
 	static cocos2d::Scene* createScene();
 
 	virtual bool init();
 
-	CREATE_FUNC(HelloWorld);
+	CREATE_FUNC(HelloWorldScene);
 
 	void DoStart(Ref* pSender);
 	void DoExit(Ref* pSender);
 	void PlayBGM(Ref* pSender);
-	~HelloWorld();
+	~HelloWorldScene();
 
 	int audioId;
+
+private:
+	GameManager* Game;
 };
 
 #endif

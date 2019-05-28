@@ -156,9 +156,11 @@ void DialogueScene::changeCharURL(std::string p)
 
 bool DialogueScene::onTouchBegan(Touch* touch, Event* unused_event)
 {
-	Director::getInstance()->popScene();
-	Game->ScriptParser(0);
-	
+	if (Game->m_IsSelection == false)
+	{
+		Director::getInstance()->popScene();
+		Game->ScriptParser(0);
+	}
 	return true;
 }
 
